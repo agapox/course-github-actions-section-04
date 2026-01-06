@@ -9,5 +9,5 @@ jobs:
       - name: Output event details
         run: |
           echo "📋 Issues..."
-          echo "${{ toJSON(github.event) }}""
+          echo "${{ toJSON(github.event) }}"
           echo "✅ Event details fetched."
