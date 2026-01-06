@@ -1,9 +1,8 @@
 name: Project Deployment
 on:
+  workflow_dispatch:
   push:
     branches: [main]
-  # workflow_dispatch:
-  #   branches: [main]
 jobs:
   lint:
     runs-on: ubuntu-latest
