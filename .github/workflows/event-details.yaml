@@ -9,6 +9,5 @@ jobs:
       - name: Issues
         uses: actions/checkout@v5
       - run: echo "📋 Issues..."
-      - run: |
-          echo ${{ toJson(github.event) }}
+      - run: echo ${{ toJson(github.event) }}
       - run: echo "✅ Event details fetched."
