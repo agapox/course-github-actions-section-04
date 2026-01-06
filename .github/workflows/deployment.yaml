@@ -1,0 +1,35 @@
+name: Project Deployment
+on:
+  [push, workflow_dispatch]:
+    branches:
+      - main
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v5
+      - run: npm ci
+      - run: echo "🔎 Linting code..."
+      - run: npm run lint
+      - run: echo "✅ Linting completed."
+  test:
+    needs: lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v5
+      - run: npm ci
+      - run: echo "🔎 Running tests..."
+      - run: npm test
+      - run: echo "✅ Tests completed."
+  build:
+    needs: [lint, test]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v5
+      - run: npm ci
+      - run: echo "🏗️ Building project..."
+      - run: npm run build
+      - run: echo "✅ Build completed."
