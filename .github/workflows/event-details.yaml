@@ -1,4 +1,4 @@
-name: Project Deployment
+name: Issues Event Details
 on:
   issues:
     types: [opened, edited, milestoned]
