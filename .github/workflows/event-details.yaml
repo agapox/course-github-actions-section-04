@@ -1,0 +1,14 @@
+name: Project Deployment
+on:
+  issues:
+    types: [opened, edited, milestoned]
+jobs:
+  event-details:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Issues
+        uses: actions/checkout@v5
+      - run: echo "📋 Issues..."
+      - run: |
+          echo ${{ toJson(github.event) }}
+      - run: echo "✅ Event details fetched."
